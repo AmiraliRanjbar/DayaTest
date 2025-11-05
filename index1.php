@@ -38,18 +38,24 @@
 </style>
 <body>
 <form method="post" action="<?php echo  $_SERVER['PHP_SELF'];?>">
-    نام کاربری را وارد نمایید : <input type="text" name="fname" />
+    نام کاربری را وارد نمایید : <label>
+        <input type="text" name="fname" />
+    </label>
     <br><br>
-    ایمیل را وارد نمایید :  <input type="email" name="email" />
+    ایمیل را وارد نمایید : <label>
+        <input type="email" name="email" />
+    </label>
     <br><br>
     <button type="submit" id="btn">ثبت اطلاعات</button>
 </form>
 
 <?php
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['fname'];
     $email = $_POST['email'];
-    if(empty($name ) && empty($email) ) {
+    //بررسی خالی بودن یا نبودن متغییر
+        if(empty($name ) && empty($email) ) {
         echo "<h4 style='color:red'>نام کاربری و ایمیل را وارد کنید<h1></h4>";
     } else {
         echo  "<div class='box1'>";
@@ -64,10 +70,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 ?>
-
-
-
-
 
 </body>
 </html>
