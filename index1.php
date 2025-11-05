@@ -55,16 +55,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['fname'];
     $email = $_POST['email'];
     //بررسی خالی بودن یا نبودن متغییر
-        if(empty($name ) && empty($email) ) {
+        if(empty($name ) || empty($email) ) {
         echo "<h4 style='color:red'>نام کاربری و ایمیل را وارد کنید<h1></h4>";
     } else {
         echo  "<div class='box1'>";
         echo  "<h4 style='color: green'>اطلاعات با موفقیت ثبت شد</h4>";
         echo  "<br>";
         echo "<h3>اطلاعات وارد شده: </h3>";
-        echo  $name;
+        echo " نام کاربری:" ,  $name;
        echo "<br>";
-        echo  $email;
+        echo " ایمیل:" ,  $email;
         echo "</div>";
     }
 }
