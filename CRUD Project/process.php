@@ -10,7 +10,7 @@ if(isset($_POST['create'])) {
     $sql = "INSERT INTO books (title, author, type, description) VALUES ('$title', '$author', '$type', '$description')";
 
     if(mysqli_query($conn, $sql)) {
-        echo "Record Inserted";
+        echo "کاربر اضافه شد";
     } else {
         die("Somthing went wrong");
     }
@@ -29,6 +29,22 @@ if(isset($_POST['edit'])) {
         echo "Record Updated";
     } else {
         die("Somthing went wrong");
+    }
+}
+
+if (isset($_POST['delete'])) {
+    $title = mysqli_real_escape_string($conn, $_POST['title']);
+    $author = mysqli_real_escape_string($conn, $_POST['author']);
+    $type = mysqli_real_escape_string($conn, $_POST['type']);
+    $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $id = mysqli_real_escape_string($conn, $_POST['id']);
+
+    $sql =  "DELETE  FROM books WHERE id=$id";
+
+    if(mysqli_query($conn, $sql)) {
+        echo "Record Deleted";
+    } else {
+        die("Somthings went wrong");
     }
 }
 ?>
